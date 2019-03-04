@@ -4,6 +4,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import ua.galkin.dto.PhoneBookRecordDto;
+import ua.galkin.services.PhoneBookService;
 
 import javax.validation.Valid;
 import javax.websocket.server.PathParam;
