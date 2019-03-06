@@ -66,12 +66,13 @@ public class PhoneBookRecordDataService {
         phoneBookRecordDao.createRecord(phoneBookRecord);
     }
 
+    @Modifying
     @Transactional
     public void updateRecord(String login, Long recordId, PhoneBookRecord phoneBookRecord){
         PhoneBookRecord currentPhoneBookRecord = phoneBookRecordDao.findByIdAndLogin(recordId, login)
                 .orElseThrow(() -> new RecordNotFoundException(String.format("Record with id %s does not find for user with login %s", recordId, login)));
-        PhoneBookRecordConverter.INSTANCE
-        phoneBookRecordDao.updateRecord(recordId, phoneBookRecord, login);
+        PhoneBookRecordConverter.INSTANCE.merge(phoneBookRecord, currentPhoneBookRecord);
+        phoneBookRecordDao.updateRecord(currentPhoneBookRecord);
     }
 
     @Modifying

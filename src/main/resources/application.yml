@@ -1,2 +1,28 @@
 security:
   secret: secret
+
+spring:
+  datasource:
+    username: postgres
+    password: Tsunami9
+    driverClassName: org.postgresql.Driver
+    driverDialect: org.hibernate.dialect.PostgreSQL82Dialect
+    url: jdbc:postgresql://localhost/phone_book_service_db
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+server:
+  port: 8087
+
+
+logging:
+  level:
+    ROOT: ERROR
+    org.springframework.web: ERROR
+    com.infopulse: TRACE
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file: /home/galkin/application.log
+

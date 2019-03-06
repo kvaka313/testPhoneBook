@@ -58,11 +58,10 @@ public class PhoneBookService {
      }
 
      public void updateRecord(String login, String recordId, PhoneBookRecordDto phoneBookRecordDto){
-        phoneBookRecordDataService.updateRecord(login, recordId, PhoneBookRecordConverter.INSTANCE.convertToEntity(phoneBookRecordDto));
+        phoneBookRecordDataService.updateRecord(login, Long.parseLong(recordId), PhoneBookRecordConverter.INSTANCE.convertToEntity(phoneBookRecordDto));
      }
 
      public void deleteRecord(String login, String recordId){
-        Long id = Long.parseLong(recordId);
-        phoneBookRecordDataService.deleteRecord(login, id);
+        phoneBookRecordDataService.deleteRecord(login, Long.parseLong(recordId));
      }
 }

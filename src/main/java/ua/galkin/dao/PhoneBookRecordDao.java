@@ -24,7 +24,7 @@ public interface PhoneBookRecordDao {
 
     void createRecord(PhoneBookRecord phoneBookRecord);
 
-    void updateRecord(String recordId, PhoneBookRecord phoneBookRecord, String login);
+    void updateRecord(PhoneBookRecord phoneBookRecord);
 
     void deleteRecord(PhoneBookRecord phoneBookRecord);
 

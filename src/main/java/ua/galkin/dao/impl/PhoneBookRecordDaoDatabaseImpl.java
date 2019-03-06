@@ -69,8 +69,8 @@ public class PhoneBookRecordDaoDatabaseImpl implements PhoneBookRecordDao {
     }
 
     @Override
-    public void updateRecord(String recordId, PhoneBookRecord phoneBookRecord, String login) {
-
+    public void updateRecord(PhoneBookRecord phoneBookRecord) {
+        phoneBookRecordRepository.save(phoneBookRecord);
     }
 
     @Override

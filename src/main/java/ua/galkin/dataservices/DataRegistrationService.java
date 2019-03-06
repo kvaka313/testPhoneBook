@@ -7,6 +7,7 @@ import ua.galkin.entities.User;
 import ua.galkin.exceptions.UserAlreadyException;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -26,8 +27,8 @@ public class DataRegistrationService {
           throw new UserAlreadyException(String.format("User with login %s already exists", u.getLogin()));
       });
 
-      final User createdUser = userDao.saveUser(user);
-      log.info(String.format("User with login %s has been created", createdUser.getLogin()));
+      final Optional<User> createdUser = userDao.saveUser(user);
+      log.info(String.format("User with login %s has been created", createdUser.get().getLogin()));
     }
 
 
