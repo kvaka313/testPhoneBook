@@ -30,7 +30,7 @@ public class PhoneBookController {
 
     @PostMapping
     public void createBookPhoneRecord(@Valid @RequestBody PhoneBookRecordDto phoneBookRecordDto){
-        phoneBookService.createRecord(phoneBookRecordDto);
+        phoneBookService.createRecord(getUserLogin(), phoneBookRecordDto);
     }
 
     @PutMapping(value = "/{recordId}")

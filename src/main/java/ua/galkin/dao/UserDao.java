@@ -8,5 +8,5 @@ public interface UserDao {
 
     Optional<User> findUserByLogin(String login);
 
-    User saveUser(User user);
+    Optional<User> saveUser(User user);
 }
