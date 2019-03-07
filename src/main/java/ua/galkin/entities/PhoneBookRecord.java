@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "phone_book_records")
 public class PhoneBookRecord {
     @Id
-    @SequenceGenerator(name = "RECORD_ID_GENERATOR", sequenceName = "RECORD_ID_SEQ", initialValue = 1, allocationSize = 1)
+    @SequenceGenerator(name = "RECORD_ID_GENERATOR", sequenceName = "PHONE_BOOK_RECORDS_ID_SEQ", initialValue = 1, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RECORD_ID_GENERATOR")
     private Long id;
 

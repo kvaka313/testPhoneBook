@@ -1,5 +1,6 @@
 package ua.galkin.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -21,17 +22,14 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     @Value("${security.secret}")
     private String secret;
 
+    @Autowired
     private TokenStore tokenStore;
+
+    @Autowired
     private UserApprovalHandler userApprovalHandler;
+
+    @Autowired
     private AuthenticationManager authenticationManager;
-
-    public AuthorizationServerConfiguration(TokenStore tokenStore, UserApprovalHandler userApprovalHandler, @Qualifier("authenticationManagerBean") AuthenticationManager authenticationManager){
-
-        this.tokenStore = tokenStore;
-        this.userApprovalHandler = userApprovalHandler;
-        this.authenticationManager = authenticationManager;
-
-    }
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {

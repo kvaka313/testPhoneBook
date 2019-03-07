@@ -21,14 +21,11 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 @Configuration
 public class OAuth2SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+    @Autowired
     private ClientDetailsService clientDetailsService;
 
+    @Autowired
     private UserDetailsService userDetailsService;
-
-    public OAuth2SecurityConfiguration(ClientDetailsService clientDetailsService, UserDetailsService userDetailsService){
-        this.clientDetailsService = clientDetailsService;
-        this.userDetailsService = userDetailsService;
-    }
 
     @Autowired
     public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
